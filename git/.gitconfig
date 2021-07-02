@@ -1,0 +1,59 @@
+[user]
+	name = Tinh Nguyen
+	email = tinh.nguyentrung1999@gmail.com 
+	signingkey = tinhn.nguyentrung1999@gmail.com
+[commit]
+	template = /home/tinhn/.gitcommit
+	gpgsign = true
+[gpg]
+	program = gpg2
+[alias]
+ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+le = log --oneline --decorate
+filelog = log -u
+dl = "!git ll -1"
+dlc = diff --cached HEAD^
+dr  = "!f() { git diff "$1"^.."$1"; }; f"
+lc  = "!f() { git ll "$1"^.."$1"; }; f"
+diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+f = "!git ls-files | grep -i"
+
+la = "!git config -l | grep alias | cut -c 7-"
+#Search/grep your entire codebase for a string:
+grep = grep -Ii
+gr = grep -Ii
+
+#Finding files and content inside files (grep)
+f = "!git ls-files | grep -i"
+
+
+#Bonus: Basic Shortcuts
+cp = cherry-pick
+st = status -s
+cl = clone
+ci = commit
+co = checkout
+br = branch
+diff = diff --word-diff
+dc = diff --cached
+#Reset Commands
+r = reset
+r1 = reset HEAD^
+r2 = reset HEAD^^
+rh = reset --hard
+rh1 = reset HEAD^ --hard
+rh2 = reset HEAD^^ --hard
+#Git-svn shortcuts
+svnr = svn rebase
+svnd = svn dcommit
+svnl = svn log --oneline --show-commit
+#Stash operations
+sl = stash list
+sa = stash apply
+ss = stash save
+#for merge request localy
+mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
